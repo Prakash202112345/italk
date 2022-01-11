@@ -1,5 +1,7 @@
 $primary-color: #e7877d;
 $secondary-color: #949494;
+$border-color: #eeeeee;
+$border-light: #e1e1e1;
 .left-side-wrapper {
     text-align: center;
     .user-avtar {
@@ -33,5 +35,84 @@ $secondary-color: #949494;
                 }
             }
         }
+    }
+}
+
+.chat-window {
+    display: flex;
+    background: #fff;
+    border-radius: 6px;
+    .users-area {
+        width: 30%;
+        border-right: 1px solid $border-color;
+    }
+    .user-head {
+        justify-content: space-between;
+    }
+    .chat-area {
+        width: 70%;
+    }
+    .head {
+        display: flex;
+        padding: 20px;
+        border-bottom: 1px solid $border-color;
+    }
+    .users {
+        li {
+            list-style: none;
+        }
+        .user-box {
+            margin: 0 20px 16px;
+            padding: 20px 0 6px;
+            border-bottom: 1px solid $border-light;
+            .user-details {
+                display: flex;
+                align-items: center;
+                .chat-avatar {
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                    object-fit: contain;
+                    margin-right: 20px;
+                }
+                .user-name {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    line-height: 23px;
+                    color: #535454;
+                }
+                .last-msg {
+                    font-size: .75rem;
+                    font-weight: 500;
+                    color: $secondary-color;
+                }
+            }
+            .bottom-details {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: .75rem;
+                margin-top: 20px;
+                color: #484949;
+                .replies {
+                    display: flex;
+                    align-items: center;
+                }
+                mat-icon {
+                    font-size: 16px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+.current-user {
+    background-color: #fdf6f4;
+    .user-box {
+        border-bottom: 2px solid $primary-color!important;
+    }
+    .user-name {
+        color: $primary-color!important;
     }
 }
