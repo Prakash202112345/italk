@@ -1,0 +1,37 @@
+$primary-color: #e7877d;
+$secondary-color: #949494;
+.left-side-wrapper {
+    text-align: center;
+    .user-avtar {
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        object-fit: contain;
+    }
+    .user-name {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin: 1rem 0 .25rem;
+    }
+    .user-quote {
+        font-size: .8rem;
+        padding: 0 2rem;
+        color: $secondary-color;
+        font-weight: 400;
+    }
+    .navigation-btn {
+        width: 80%;
+        margin: auto;
+        ul {
+            padding-left: 0;
+            li {
+                list-style: none;
+                button {
+                    text-align: left;
+                    width: 100%;
+                    padding-left: 70px;
+                }
+            }
+        }
+    }
+}

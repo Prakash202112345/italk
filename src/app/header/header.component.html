@@ -1,0 +1,25 @@
+<header>
+    <div class="comtainer-fluid">
+        <mat-toolbar>
+            <a routerlink=""><img src="assets/images/logo.png" alt="logo" class="logo" /></a>
+            <mat-tab-group mat-align-tabs="center">
+                <mat-tab label="First"></mat-tab>
+                <mat-tab label="Second"></mat-tab>
+                <mat-tab label="Third"></mat-tab>
+            </mat-tab-group>
+
+            <div class="user-menu">
+                <button mat-icon-button class="deactive me-2"><mat-icon>help_outline</mat-icon></button>
+                <button mat-icon-button class="active me-2"><mat-icon>notifications_none</mat-icon></button>
+                <button class="user-menu" mat-button [matMenuTriggerFor]="menu">
+                <img src="assets/images/user.jpg" alt="user" class="user" /> <span class="user-name">Robin Wang</span>
+                <mat-icon class="text-secondary">arrow_drop_down</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Item 1</button>
+                    <button mat-menu-item>Item 2</button>
+                </mat-menu>
+            </div>
+        </mat-toolbar>
+    </div>
+</header>

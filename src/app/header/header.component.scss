@@ -1,0 +1,25 @@
+$primary-color: #e7877d;
+$secondary-color: #949494;
+header {
+    mat-toolbar {
+        justify-content: space-between;
+        background-color: #fff;
+        .logo {
+            max-height: 49px;
+            object-fit: contain;
+        }
+        .user {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        mat-tab-group {
+            margin-top: 15px;
+        }
+        .user-name {
+            font-size: 1rem;
+            padding: 0 6px 0 6px;
+        }
+    }
+}
