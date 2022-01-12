@@ -16,6 +16,30 @@ header {
         }
         mat-tab-group {
             margin-top: 15px;
+            mat-icon {
+                margin-right: 12px;
+            }
+        }
+         ::ng-deep {
+            .mat-tab-header {
+                border: 0;
+            }
+            .mat-tab-label,
+            .mat-tab-link {
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+            .mat-tab-label-active mat-icon {
+                color: $primary-color;
+            }
+            .mat-tab-label.mat-tab-label-active {
+                opacity: 1;
+            }
+            .mat-tab-label-active {
+                span {
+                    color: #000;
+                }
+            }
         }
         .user-name {
             font-size: 1rem;

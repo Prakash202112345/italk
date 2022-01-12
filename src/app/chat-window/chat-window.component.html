@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2">
             <div class="left-side-wrapper">
-                <img src="assets/images/user.jpg" alt="" class="user-avtar" />
+                <img src="assets/images/user-5.jpg" alt="" class="user-avtar" />
                 <div class="user-name">Robin Wang</div>
                 <div class="user-quote">
                     Life starts at the end of your comfort zone
@@ -18,27 +18,31 @@
                     </ul>
 
                     <button class="white-button mt-3">
-            <mat-icon> chat_bubble</mat-icon> Groups
+                        <mat-icon>people_outline</mat-icon> Groups
           </button>
                     <ul>
-                        <li><button mat-button class="active">History</button></li>
+                        <li><button mat-button class="deactive">History</button></li>
                         <li><button mat-button class="deactive">Crete Groups</button></li>
                     </ul>
 
                     <button class="white-button mt-3">
-            <mat-icon> chat_bubble</mat-icon> Video Calls
+                        <mat-icon>videocam</mat-icon> Video Calls
           </button>
                     <ul>
-                        <li><button mat-button class="active">History</button></li>
+                        <li><button mat-button class="deactive">History</button></li>
                         <li><button mat-button class="deactive">Calls</button></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-md-10">
-            <div class="title-lg d-flex align-items-center">
-                <mat-icon class="active icon-lg me-4"> chat_bubble</mat-icon> <span>Message</span>
+            <div class="title-lg d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                    <mat-icon class="active icon-lg me-4 "> chat_bubble</mat-icon> <span>Message</span>
+                </div>
+                <button mat-icon-button class="deactive" matTooltip="View in Full Screen" matTooltipPosition="left"><mat-icon>fullscreen_exit</mat-icon></button>
             </div>
+
             <div class="chat-window shadow">
                 <div class="users-area">
                     <div class="head user-head">
@@ -47,77 +51,20 @@
                     </div>
                     <div class="users">
                         <ul class="p-0 m-0">
-                            <li class="current-user">
+                            <li *ngFor="let item of users; let i = index" [class.current-user]="selectedItem == i" (click)="selectedItem=i">
                                 <div class="user-box">
                                     <div class="user-details">
-                                        <img src="assets/images/user.jpg" alt="user" class="chat-avatar">
+                                        <img src="{{item.avatar}}" alt="user" class="chat-avatar">
                                         <div>
-                                            <div class="user-name">Olivia Sol</div>
-                                            <div class="last-msg">I'll be send the mail soon.</div>
+                                            <div class="user-name">{{item.name}}</div>
+                                            <div class="last-msg">{{item.lastMessage}}</div>
                                         </div>
                                     </div>
                                     <div class="bottom-details">
-                                        <div class="date">19 Jan, 2018 | 03:49 pm</div>
+                                        <div class="date">{{item.date}} | {{item.time}}</div>
                                         <div class="replies">
-                                            <mat-icon class="text-success">remove_red_eye</mat-icon> |
-                                            <mat-icon> bar_chart</mat-icon> 290/300
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="user-box">
-                                    <div class="user-details">
-                                        <img src="assets/images/user.jpg" alt="user" class="chat-avatar">
-                                        <div>
-                                            <div class="user-name">Olivia Sol</div>
-                                            <div class="last-msg">I'll be send the mail soon.</div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-details">
-                                        <div class="date">19 Jan, 2018 | 03:49 pm</div>
-                                        <div class="replies">
-                                            <mat-icon class="text-success">remove_red_eye</mat-icon> |
-                                            <mat-icon> bar_chart</mat-icon> 290/300
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="user-box">
-                                    <div class="user-details">
-                                        <img src="assets/images/user.jpg" alt="user" class="chat-avatar">
-                                        <div>
-                                            <div class="user-name">Olivia Sol</div>
-                                            <div class="last-msg">I'll be send the mail soon.</div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-details">
-                                        <div class="date">19 Jan, 2018 | 03:49 pm</div>
-                                        <div class="replies">
-                                            <mat-icon class="text-success">remove_red_eye</mat-icon> |
-                                            <mat-icon> bar_chart</mat-icon> 290/300
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="user-box">
-                                    <div class="user-details">
-                                        <img src="assets/images/user.jpg" alt="user" class="chat-avatar">
-                                        <div>
-                                            <div class="user-name">Olivia Sol</div>
-                                            <div class="last-msg">I'll be send the mail soon.</div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-details">
-                                        <div class="date">19 Jan, 2018 | 03:49 pm</div>
-                                        <div class="replies">
-                                            <mat-icon class="text-success">remove_red_eye</mat-icon> |
-                                            <mat-icon> bar_chart</mat-icon> 290/300
+                                            <mat-icon class="text-success">remove_red_eye</mat-icon> {{item.replies}} Replies |
+                                            <mat-icon> bar_chart</mat-icon> {{item.response}}
                                         </div>
                                     </div>
                                 </div>
@@ -126,7 +73,82 @@
                     </div>
                 </div>
                 <div class="chat-area">
+                    <div class="head">
+                        <mat-tab-group mat-align-tabs="left">
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <mat-icon>remove_red_eye</mat-icon>
+                                    <span>REPLIES</span>
+                                </ng-template>
 
+                            </mat-tab>
+                            <mat-tab>
+                                <ng-template mat-tab-label>
+                                    <mat-icon> bar_chart</mat-icon>
+                                    <span>REPORTS</span>
+                                </ng-template>
+
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                    <div class="chat-box">
+                        <div class="message-wrap">
+                            <div class="message-list me">
+                                <div class="align-items-end d-flex">
+                                    <div>
+                                        <div class="msg">
+                                            <p>Hey Olivia 😄, Did you got a chance to see venue?</p>
+                                        </div>
+                                        <div class="time">2Hr ago</div>
+                                    </div>
+                                    <img src="assets/images/user-5.jpg" alt="me" class="user">
+
+                                </div>
+                            </div>
+
+                            <div class="message-list">
+                                <div class="align-items-end d-flex">
+                                    <img src="assets/images/user-5.jpg" alt="me" class="user">
+                                    <div>
+                                        <div class="msg">
+                                            <p>Hi robin, this seems like a great starts 😄</p>
+                                        </div>
+                                        <div class="d-flex mt-3">
+                                            <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-lg">
+                                            <div class="d-flex flex-column">
+                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
+                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
+                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
+                                            </div>
+                                        </div>
+                                        <div class="time">2Hr ago</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message-footer">
+                            <div class="position-relative">
+                                <button mat-mini-fab class="bg-Primary" (click)="clickEvent()" [ngClass]="status ? 'rotate-icon' : 'normal-icon'">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+
+
+                                <div class="attachments" [ngClass]="status ? 'd-block' : 'd-none'">
+                                    <ul>
+                                        <li><button mat-button><mat-icon>volume_up</mat-icon> <span>Audio</span></button></li>
+                                        <li><button mat-button><mat-icon>videocam</mat-icon> <span>Video</span></button></li>
+                                        <li><button mat-button><mat-icon>text_fields</mat-icon> <span>Text</span></button></li>
+                                        <li><button mat-button><mat-icon>image</mat-icon> <span>Image</span></button></li>
+                                        <li><button mat-button><mat-icon>mic</mat-icon> <span>TTS</span></button></li>
+                                        <li><button mat-button><mat-icon>theaters</mat-icon> <span>Audio & Text</span></button></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <input type="text" placeholder="Send a message to Olivia">
+                            <button mat-button class="submit-button"><mat-icon> near_me</mat-icon> Send</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
