@@ -11,6 +11,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatCardModule} from '@angular/material/card';
+import {MatRippleModule} from '@angular/material/core';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
+
 
 
 
@@ -30,7 +35,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatButtonModule,
     MatTabsModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule,
+    MatRippleModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

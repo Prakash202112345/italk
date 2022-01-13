@@ -1,8 +1,11 @@
 <header>
+
+    <!-- Desktop Header -->
+
     <div class="comtainer-fluid">
         <mat-toolbar>
             <a routerlink=""><img src="assets/images/logo.png" alt="logo" class="logo" /></a>
-            <mat-tab-group mat-align-tabs="left">
+            <mat-tab-group mat-align-tabs="left" class="d-none d-xl-flex">
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <mat-icon>people_outline</mat-icon>
@@ -27,10 +30,23 @@
             </mat-tab-group>
 
             <div class="user-menu">
-                <button mat-icon-button class="deactive me-2" matTooltip="Info about the action"><mat-icon>help_outline</mat-icon></button>
-                <button mat-icon-button class="active me-2"><mat-icon>notifications_none</mat-icon></button>
-                <button class="user-menu" mat-button [matMenuTriggerFor]="menu">
-                <img src="assets/images/user-5.jpg" alt="user" class="user" /> <span class="user-name">Robin Wang</span>
+                <button mat-icon-button class="deactive me-2 hideInMobile" matTooltip="Info about the action"><mat-icon>help_outline</mat-icon></button>
+                <button mat-icon-button class="active me-2 hideInMobile" (click)="notification()"><mat-icon>notifications_none</mat-icon></button>
+                <div class="notification-wrap shadow" [ngClass]="status ? 'show-notification' : 'hide-notification'">
+                    <div class="notification-card" matRipple *ngFor="let item of notificationList">
+                        <div class="notification-time">{{item.name}} - {{item.lastSeen}}</div>
+                        <div class="d-flex">
+                            <img src="{{item.avatar}}" alt="" class="me-3 user">
+                            <div class="media-body">
+                                <div class="userName">{{item.name}}</div>
+                                <div class="userMsg">{{item.lastMessage}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="user-menu px-0 px-lg-3" mat-button [matMenuTriggerFor]="menu">
+                <img src="assets/images/user-5.jpg" alt="user" class="user" /> <span class="user-name hideInMobile">Robin Wang</span>
                 <mat-icon class="text-secondary">arrow_drop_down</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
@@ -40,4 +56,22 @@
             </div>
         </mat-toolbar>
     </div>
+
+
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <p>Auto-resizing sidenav</p>
+            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+            <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+          </button>
+        </mat-drawer>
+
+        <div class="example-sidenav-content">
+            <button type="button" mat-button (click)="drawer.toggle()">
+            Toggle sidenav
+          </button>
+        </div>
+
+    </mat-drawer-container>
 </header>

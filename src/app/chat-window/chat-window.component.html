@@ -51,7 +51,7 @@
                     </div>
                     <div class="users">
                         <ul class="p-0 m-0">
-                            <li *ngFor="let item of users; let i = index" [class.current-user]="selectedItem == i" (click)="selectedItem=i">
+                            <li matRipple *ngFor="let item of users; let i = index" [class.current-user]="selectedItem == i" (click)="selectedItem=i">
                                 <div class="user-box">
                                     <div class="user-details">
                                         <img src="{{item.avatar}}" alt="user" class="chat-avatar">
