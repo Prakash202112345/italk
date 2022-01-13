@@ -1,20 +1,29 @@
+@import "../../styles.scss";
+// @import "../../mixins";
+
 $primary-color: #e7877d;
 $secondary-color: #949494;
 $border-color: #eeeeee;
 $border-light: #e1e1e1;
-@mixin hideInMobile {
-    @media (max-width: 600px) {
-        display: none;
-    }
-}
+
+
 
 header {
     mat-toolbar {
         justify-content: space-between;
         background-color: #fff;
+
+        .hideInDesktop{
+            @include hideInDesktop;
+        }
+        
         .logo {
             max-height: 49px;
             object-fit: contain;
+            @media (max-width: 575.98px) {
+                max-height: 36px;
+                padding: 2px;
+            }
         }
         .user {
             width: 28px;
@@ -124,4 +133,11 @@ header {
             }
         }
     }
+}
+
+.example-container{
+    height:100%;
+}
+.example-sidenav-container{
+width: 200px;
 }

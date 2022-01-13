@@ -4,6 +4,7 @@
 
     <div class="comtainer-fluid">
         <mat-toolbar>
+            <button mat-icon-button (click)="openmenu()" class="hideInDesktop"><mat-icon>menu</mat-icon></button>
             <a routerlink=""><img src="assets/images/logo.png" alt="logo" class="logo" /></a>
             <mat-tab-group mat-align-tabs="left" class="d-none d-xl-flex">
                 <mat-tab>
@@ -56,22 +57,4 @@
             </div>
         </mat-toolbar>
     </div>
-
-
-    <mat-drawer-container class="example-container" autosize>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-            <p>Auto-resizing sidenav</p>
-            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-            <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-          </button>
-        </mat-drawer>
-
-        <div class="example-sidenav-content">
-            <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-          </button>
-        </div>
-
-    </mat-drawer-container>
 </header>

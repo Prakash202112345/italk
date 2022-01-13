@@ -1,17 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit,Input, EventEmitter, Output } from '@angular/core';
+import { SidenavComponent } from '../sidenav/sidenav.component';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+
+
+
+
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,AfterViewInit{
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  @Output('parentFun') parentFun: EventEmitter<any> = new EventEmitter();
 
+  constructor(private router: Router,) {
+   }
+
+  
+ 
   notificationList = [
     {
       avatar : "assets/images/user-1.jpeg",
@@ -51,5 +63,15 @@ export class HeaderComponent implements OnInit {
   notification(){
     this.status = !this.status;
   }
+
+  ngAfterViewInit(): void {
+    // throw new Error('Method not implemented.');
+  }
+
+  ngOnInit(): void {
+  }
+  openmenu(){
+    this.parentFun.emit();
+   }
 
 }

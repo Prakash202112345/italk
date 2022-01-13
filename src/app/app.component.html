@@ -1,2 +1,26 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+ 
+ <!-- <mat-toolbar color="primary" class="example-toolbar">
+    
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar> -->
+
+<mat-sidenav-container>
+    <mat-sidenav class="slidemenu hideSome" fixedInViewport="true" #sidenav [mode]="mode.value">  
+        <div class="closs_area">
+            <button mat-icon-button (click)="toggleSideNav()" class="m-3"><mat-icon>close</mat-icon></button>
+          </div>
+      <mat-nav-list role="list">
+        <app-sidenav></app-sidenav>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+        <app-header (parentFun)='parentFun()'></app-header>
+        <router-outlet></router-outlet>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
+  
+  

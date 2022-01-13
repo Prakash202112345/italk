@@ -1,10 +1,17 @@
+ul{
+    list-style-type: none;
+}
+@media only screen and (min-width: 1201px){
+
+.hide-desktop {
+    display: none;
+}
+}
 $primary-color: #e7877d;
 $secondary-color: #949494;
 $border-color: #eeeeee;
 $border-light: #e1e1e1;
 $message-bg: #fcf0ee;
-
-
 @mixin user-avatar {
     width: 28px;
     height: 28px;
@@ -13,16 +20,8 @@ $message-bg: #fcf0ee;
     margin-bottom: 16px;
 }
 
-@mixin hideInMobile {
-    @media only screen and (max-width: 575.98px) {
-        display: none;
-    }
-}
-
 .left-side-wrapper {
     text-align: center;
-    @include hideInMobile;
-
     .user-avtar {
         height: 120px;
         width: 120px;
@@ -32,10 +31,10 @@ $message-bg: #fcf0ee;
     .user-name {
         font-size: 1.3rem;
         font-weight: 500;
-        margin: 1rem 0 0.25rem;
+        margin: 1rem 0 .25rem;
     }
     .user-quote {
-        font-size: 0.8rem;
+        font-size: .8rem;
         padding: 0 2rem;
         color: $secondary-color;
         font-weight: 400;
@@ -81,7 +80,7 @@ $message-bg: #fcf0ee;
             mat-icon {
                 margin-right: 12px;
             }
-            ::ng-deep {
+             ::ng-deep {
                 .mat-tab-label {
                     height: 60px;
                 }
@@ -145,7 +144,7 @@ $message-bg: #fcf0ee;
                     .time {
                         text-align: left;
                         color: $secondary-color;
-                        font-size: 0.6rem;
+                        font-size: .6rem;
                         margin-top: 6px;
                     }
                 }
@@ -158,7 +157,7 @@ $message-bg: #fcf0ee;
                     .time {
                         text-align: right;
                         color: $secondary-color;
-                        font-size: 0.6rem;
+                        font-size: .6rem;
                     }
                 }
             }
@@ -172,13 +171,13 @@ $message-bg: #fcf0ee;
                 .rotate-icon {
                     mat-icon {
                         transform: rotate(45deg);
-                        transition: transform 0.3s ease-in-out;
+                        transition: transform .3s ease-in-out;
                     }
                 }
                 .normal-icon {
                     mat-icon {
                         transform: rotate(0deg);
-                        transition: transform 0.3s ease-in-out;
+                        transition: transform .3s ease-in-out;
                     }
                 }
                 input {
@@ -267,7 +266,7 @@ $message-bg: #fcf0ee;
                     color: #535454;
                 }
                 .last-msg {
-                    font-size: 0.75rem;
+                    font-size: .75rem;
                     font-weight: 500;
                     color: $secondary-color;
                 }
@@ -276,7 +275,7 @@ $message-bg: #fcf0ee;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                font-size: 0.75rem;
+                font-size: .75rem;
                 margin-top: 20px;
                 color: #484949;
                 .replies {

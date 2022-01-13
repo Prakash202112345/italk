@@ -14,10 +14,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatCardModule} from '@angular/material/card';
 import {MatRippleModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
-
-
-
+import {MatListModule} from '@angular/material/list';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { SideBarService } from './sidenav/sidemenu.service';
 
 
 @NgModule({
@@ -25,6 +24,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     AppComponent,
     ChatWindowComponent,
     HeaderComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +38,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatTooltipModule,
     MatCardModule,
     MatRippleModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule 
   ],
-  providers: [],
+  providers: [
+    SideBarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
