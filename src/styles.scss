@@ -4,7 +4,6 @@
 @import '~bootstrap/scss/functions';
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
-
 html,
 body {
     height: 100%;
@@ -15,6 +14,7 @@ body {
         display: none;
     }
 }
+
 @mixin hideInDesktop {
     @media (min-width: 1199.98px) {
         display: none;
@@ -102,5 +102,11 @@ $secondary-color: #949494;
     mat-icon {
         margin-right: 0px;
         font-size: 20px;
+    }
+}
+
+::ng-deep {
+    .mat-drawer-container {
+        background-color: #f8f8f8;
     }
 }

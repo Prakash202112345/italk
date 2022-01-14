@@ -1,46 +1,29 @@
 <div class="container-fluid mt-3">
     <div class="row">
-        <div class="col-md-2">
-            <div class="left-side-wrapper">
-                <img src="assets/images/user-5.jpg" alt="" class="user-avtar" />
-                <div class="user-name">Robin Wang</div>
-                <div class="user-quote">
-                    Life starts at the end of your comfort zone
-                </div>
-
-                <div class="navigation-btn">
-                    <button class="primary-button mt-3">
-            <mat-icon> chat_bubble</mat-icon> Message
-          </button>
-                    <ul>
-                        <li><button mat-button class="active">Chats</button></li>
-                        <li><button mat-button class="deactive">Send Message</button></li>
-                    </ul>
-
-                    <button class="white-button mt-3">
-                        <mat-icon>people_outline</mat-icon> Groups
-          </button>
-                    <ul>
-                        <li><button mat-button class="deactive">History</button></li>
-                        <li><button mat-button class="deactive">Crete Groups</button></li>
-                    </ul>
-
-                    <button class="white-button mt-3">
-                        <mat-icon>videocam</mat-icon> Video Calls
-          </button>
-                    <ul>
-                        <li><button mat-button class="deactive">History</button></li>
-                        <li><button mat-button class="deactive">Calls</button></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="col-md-2 d-none d-xl-block">
+            <app-sidenav></app-sidenav>
         </div>
-        <div class="col-md-10">
+        <div class="col-12 col-md-12 col-xl-10">
             <div class="title-lg d-flex align-items-center justify-content-between mb-3">
                 <div class="d-flex align-items-center">
                     <mat-icon class="active icon-lg me-4 "> chat_bubble</mat-icon> <span>Message</span>
                 </div>
                 <button mat-icon-button class="deactive" matTooltip="View in Full Screen" matTooltipPosition="left"><mat-icon>fullscreen_exit</mat-icon></button>
+            </div>
+
+            <div class="user-area-mobile">
+                <div class="head">
+                    <div class="title-md me-2">Chats</div>
+                    <div class="me-3">29/30</div>
+
+                    <div class="user-mobile">
+                        <div matRipple *ngFor="let item of users; let i = index" [class.current-user]="selectedItem == i" (click)="selectedItem=i">
+                            <img src="{{item.avatar}}" alt="user" class="chat-avatar">
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
 
             <div class="chat-window shadow">
@@ -113,12 +96,15 @@
                                         <div class="msg">
                                             <p>Hi robin, this seems like a great starts 😄</p>
                                         </div>
-                                        <div class="d-flex mt-3">
+                                        <div class="d-flex mt-3 position-relative" gallerize>
                                             <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-lg">
                                             <div class="d-flex flex-column">
-                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
-                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
-                                                <img src="assets/images/nature-1.jpg" alt="naure" class="thumb-sm">
+                                                <img src="assets/images/nature-2.jpg" alt="naure" class="thumb-sm">
+                                                <img src="assets/images/nature-3.jpg" alt="naure" class="thumb-sm">
+                                                <img src="assets/images/nature-4.jpg" alt="naure" class="thumb-sm">
+                                            </div>
+                                            <div class="like" matTooltip="Robin reacted to your message" matTooltipPosition="below">
+                                                😍
                                             </div>
                                         </div>
                                         <div class="time">2Hr ago</div>
@@ -146,11 +132,11 @@
                             </div>
 
                             <input type="text" placeholder="Send a message to Olivia">
-                            <button mat-button class="submit-button"><mat-icon> near_me</mat-icon> Send</button>
+                            <button mat-button class="submit-button"><mat-icon> near_me</mat-icon> <span class="hideInMobile">Send</span></button>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</div>

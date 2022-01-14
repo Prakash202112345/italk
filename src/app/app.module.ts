@@ -17,6 +17,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { SideBarService } from './sidenav/sidemenu.service';
+import { GalleryModule } from 'ng-gallery';
+import { LightboxModule } from 'ng-gallery/lightbox';
 
 
 @NgModule({
@@ -39,7 +41,11 @@ import { SideBarService } from './sidenav/sidemenu.service';
     MatCardModule,
     MatRippleModule,
     MatSidenavModule,
-    MatListModule 
+    MatListModule ,
+    GalleryModule.withConfig({
+      // thumbView: 'contain',
+    }),
+    LightboxModule,
   ],
   providers: [
     SideBarService

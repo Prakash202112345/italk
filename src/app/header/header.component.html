@@ -6,7 +6,7 @@
         <mat-toolbar>
             <button mat-icon-button (click)="openmenu()" class="hideInDesktop"><mat-icon>menu</mat-icon></button>
             <a routerlink=""><img src="assets/images/logo.png" alt="logo" class="logo" /></a>
-            <mat-tab-group mat-align-tabs="left" class="d-none d-xl-flex">
+            <mat-tab-group mat-align-tabs="left" class="d-none d-xl-flex" [selectedIndex]="1">
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <mat-icon>people_outline</mat-icon>
@@ -31,8 +31,8 @@
             </mat-tab-group>
 
             <div class="user-menu">
-                <button mat-icon-button class="deactive me-2 hideInMobile" matTooltip="Info about the action"><mat-icon>help_outline</mat-icon></button>
-                <button mat-icon-button class="active me-2 hideInMobile" (click)="notification()"><mat-icon>notifications_none</mat-icon></button>
+                <button mat-icon-button class="deactive me-2" matTooltip="Info about the action"><mat-icon>help_outline</mat-icon></button>
+                <button mat-icon-button class="active me-2" (click)="notification()"><mat-icon>notifications_none</mat-icon></button>
                 <div class="notification-wrap shadow" [ngClass]="status ? 'show-notification' : 'hide-notification'">
                     <div class="notification-card" matRipple *ngFor="let item of notificationList">
                         <div class="notification-time">{{item.name}} - {{item.lastSeen}}</div>

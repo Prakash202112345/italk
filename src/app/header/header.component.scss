@@ -1,22 +1,16 @@
 @import "../../styles.scss";
 // @import "../../mixins";
-
 $primary-color: #e7877d;
 $secondary-color: #949494;
 $border-color: #eeeeee;
 $border-light: #e1e1e1;
-
-
-
 header {
     mat-toolbar {
         justify-content: space-between;
         background-color: #fff;
-
-        .hideInDesktop{
+        .hideInDesktop {
             @include hideInDesktop;
         }
-        
         .logo {
             max-height: 49px;
             object-fit: contain;
@@ -63,9 +57,6 @@ header {
             padding: 0 6px 0 6px;
         }
         .user-menu {
-            .hideInMobile {
-                @include hideInMobile;
-            }
             .hide-notification {
                 visibility: hidden;
                 transform: translateY(-50%);
@@ -89,6 +80,7 @@ header {
             border-radius: 12px;
             max-height: 356px;
             overflow-y: scroll;
+            z-index: 9;
             &::-webkit-scrollbar {
                 width: 3px;
             }
@@ -135,9 +127,10 @@ header {
     }
 }
 
-.example-container{
-    height:100%;
+.example-container {
+    height: 100%;
 }
-.example-sidenav-container{
-width: 200px;
+
+.example-sidenav-container {
+    width: 200px;
 }

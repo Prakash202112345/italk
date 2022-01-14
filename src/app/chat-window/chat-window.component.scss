@@ -1,10 +1,9 @@
+@import "../../styles.scss";
 $primary-color: #e7877d;
 $secondary-color: #949494;
 $border-color: #eeeeee;
 $border-light: #e1e1e1;
 $message-bg: #fcf0ee;
-
-
 @mixin user-avatar {
     width: 28px;
     height: 28px;
@@ -14,7 +13,7 @@ $message-bg: #fcf0ee;
 }
 
 @mixin hideInMobile {
-    @media only screen and (max-width: 575.98px) {
+    @media only screen and (max-width: 1199.9px) {
         display: none;
     }
 }
@@ -22,7 +21,6 @@ $message-bg: #fcf0ee;
 .left-side-wrapper {
     text-align: center;
     @include hideInMobile;
-
     .user-avtar {
         height: 120px;
         width: 120px;
@@ -63,15 +61,22 @@ $message-bg: #fcf0ee;
     border-radius: 6px;
     height: 74vh;
     overflow: hidden;
+    @media only screen and (max-width: 1199.98px) {
+        height: auto;
+    }
     .users-area {
         width: 30%;
         border-right: 1px solid $border-color;
+        @include hideInMobile;
     }
     .user-head {
         justify-content: space-between;
     }
     .chat-area {
         width: 70%;
+        @media only screen and (max-width: 1199.98px) {
+            width: 100%;
+        }
         .head {
             padding: 0 20px !important;
             height: 65px;
@@ -81,7 +86,7 @@ $message-bg: #fcf0ee;
             mat-icon {
                 margin-right: 12px;
             }
-            ::ng-deep {
+             ::ng-deep {
                 .mat-tab-label {
                     height: 60px;
                 }
@@ -106,6 +111,9 @@ $message-bg: #fcf0ee;
             display: flex;
             flex-direction: column;
             height: 89%;
+            @media only screen and (max-width: 1199.98px) {
+                height: auto;
+            }
             .message-wrap {
                 flex: 1;
                 display: flex;
@@ -118,6 +126,10 @@ $message-bg: #fcf0ee;
                 .message-list {
                     align-self: flex-start;
                     max-width: 40%;
+                    @media only screen and (max-width: 575.98px) {
+                        max-width: 100%;
+                        margin-bottom: 16px;
+                    }
                     .thumb-sm {
                         width: 60px;
                         height: 36px;
@@ -127,6 +139,29 @@ $message-bg: #fcf0ee;
                     .thumb-lg {
                         width: 268px;
                         border-radius: 12px;
+                        @media only screen and (max-width: 575.98px) {
+                            width: 194px;
+                        }
+                    }
+                    .like {
+                        position: absolute;
+                        bottom: -21px;
+                        right: 41px;
+                        background: #fcf0ee;
+                        font-size: 37px;
+                        border-radius: 50%;
+                        height: 70px;
+                        width: 70px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        @media only screen and (max-width: 575.98px) {
+                            bottom: -11px;
+                            right: 77px;
+                            font-size: 20px;
+                            height: 36px;
+                            width: 36px;
+                        }
                     }
                     .user {
                         @include user-avatar;
@@ -169,6 +204,9 @@ $message-bg: #fcf0ee;
                 display: flex;
                 position: sticky;
                 bottom: 0;
+                @media only screen and (max-width: 575.98px) {
+                    padding: 8px;
+                }
                 .rotate-icon {
                     mat-icon {
                         transform: rotate(45deg);
@@ -189,6 +227,9 @@ $message-bg: #fcf0ee;
                     &:focus {
                         outline: 0;
                     }
+                    @media only screen and (max-width: 575.98px) {
+                        padding: 0 8px;
+                    }
                 }
                 .attachments {
                     position: absolute;
@@ -199,6 +240,10 @@ $message-bg: #fcf0ee;
                     border: 1px solid $border-light;
                     color: $secondary-color;
                     font-weight: 400;
+                    @media only screen and (max-width: 575.98px) {
+                        top: unset;
+                        bottom: 49px;
+                    }
                     &:after {
                         content: "";
                         width: 0;
@@ -215,6 +260,9 @@ $message-bg: #fcf0ee;
                         list-style: none;
                         margin: 0;
                         padding-left: 0;
+                        @media only screen and (max-width: 575.98px) {
+                            display: block;
+                        }
                         button {
                             span {
                                 font-weight: 400;
@@ -231,6 +279,9 @@ $message-bg: #fcf0ee;
         display: flex;
         padding: 20px;
         border-bottom: 1px solid $border-color;
+        @media only screen and (max-width: 575.98px) {
+            padding: 0 20px;
+        }
     }
     .users {
         overflow-y: scroll;
@@ -270,6 +321,12 @@ $message-bg: #fcf0ee;
                     font-size: 0.75rem;
                     font-weight: 500;
                     color: $secondary-color;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    @media only screen and (min-width: 575.98px) and (max-width: 1024px) {
+                        max-width: 122px;
+                    }
                 }
             }
             .bottom-details {
@@ -299,5 +356,37 @@ $message-bg: #fcf0ee;
     }
     .user-name {
         color: $primary-color !important;
+    }
+}
+
+.user-area-mobile {
+    @include hideInDesktop;
+    overflow: scroll;
+    margin-bottom: 16px;
+    .user-mobile {
+        padding-left: 0;
+        width: 100%;
+        display: flex;
+        img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+        }
+        div {
+            margin: 0 3px;
+            border-radius: 50%;
+        }
+    }
+    .head {
+        display: flex;
+        padding: 16px;
+        border-radius: 8px;
+        align-items: center;
+        overflow: scroll;
+        margin-bottom: 16px;
+        .current-user {
+            background-color: #fdf6f4;
+            border: 2px solid #e7877d;
+        }
     }
 }
