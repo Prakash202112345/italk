@@ -43,7 +43,10 @@
     @media (max-width: 1199.98px) { @content; }
   }
   @else if $point == xl {
-    @media (max-width: 1400)  { @content; }
+    @media (max-width: 1400px)  { @content; }
+  }
+  @else if $point == xxl {
+    @media (min-width: 1920px)  { @content; }
   }
   @else if $point == sm-lg {
     @media (min-width: 575.98px) and (max-width: 1024px)  { @content; }

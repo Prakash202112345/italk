@@ -47,6 +47,9 @@
     @include breakpoint(lg){
         height: auto;
     }
+    @include breakpoint(xxl){
+        height:auto;
+    }
     .users-area {
         width: 30%;
         border-right: 1px solid $border-color;
