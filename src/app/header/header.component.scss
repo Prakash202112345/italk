@@ -1,23 +1,21 @@
-@import "../../styles.scss";
-// @import "../../mixins";
-$primary-color: #e7877d;
-$secondary-color: #949494;
-$border-color: #eeeeee;
-$border-light: #e1e1e1;
+@import "__variable";
+@import "__mixin";
+
+
 header {
     mat-toolbar {
         justify-content: space-between;
         background-color: #fff;
         .hideInDesktop {
-            @include hideInDesktop;
+                @include hideInDesktop;
         }
         .logo {
             max-height: 49px;
             object-fit: contain;
-            @media (max-width: 575.98px) {
+            @include breakpoint(sm) {
                 max-height: 36px;
                 padding: 2px;
-            }
+              }
         }
         .user {
             width: 28px;
@@ -28,10 +26,18 @@ header {
         mat-tab-group {
             margin-top: 15px;
             mat-icon {
-                margin-right: 12px;
+                margin-right: 7px;
+                font-size: 21px;
+                height: auto;
+                width: auto;
             }
         }
          ::ng-deep {
+            .mat-tab-label{
+                min-width: 100px;
+                padding: 0 16px;
+                margin: 0 16px;
+            }
             .mat-tab-header {
                 border: 0;
             }
@@ -42,6 +48,17 @@ header {
             }
             .mat-tab-label-active mat-icon {
                 color: $primary-color;
+                position: relative;
+                &:after{
+                    content: "";
+                    box-shadow: 2px 4px 20px 1px #e7877da8;
+                    position: absolute;
+                    height: 7px;
+                    width: 16px;
+                    left: 3px;
+                    top: 7px;
+                    background-color: rgba(255, 255, 255, 0);
+                }
             }
             .mat-tab-label.mat-tab-label-active {
                 opacity: 1;
@@ -72,6 +89,10 @@ header {
             width: 300px;
             position: absolute;
             right: 200px;
+            @include breakpoint(sm){
+                left:16px;
+                right: unset;
+            }
             white-space: nowrap;
             overflow-x: hidden;
             text-overflow: ellipsis;

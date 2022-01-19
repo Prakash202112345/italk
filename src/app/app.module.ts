@@ -19,6 +19,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { SideBarService } from './sidenav/sidemenu.service';
 import { GalleryModule } from 'ng-gallery';
 import { LightboxModule } from 'ng-gallery/lightbox';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { LightboxModule } from 'ng-gallery/lightbox';
     AppComponent,
     ChatWindowComponent,
     HeaderComponent,
-    SidenavComponent
+    SidenavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

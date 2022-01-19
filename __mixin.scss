@@ -1,0 +1,51 @@
+@mixin hideInMobile {
+    @media (max-width: 575.98px) {
+        display: none;
+    }
+}
+
+@mixin hideInDesktop {
+    @media (min-width: 1199.98px) {
+        display: none;
+    }
+}
+
+@mixin button-prop {
+    padding: 8px 8px 8px 28px;
+    border: 0;
+    border-radius: 4px;
+    transition: box-shadow ease-in-out .2s;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+@mixin user-avatar {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+@mixin shadow-primary{
+  box-shadow: 0 0 20px 0px #e7877d73;
+}
+
+@mixin breakpoint($point) {
+  @if $point == sm {
+    @media (max-width: 575.98px) { @content; }
+  }
+  @else if $point == md {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $point == lg {
+    @media (max-width: 1199.98px) { @content; }
+  }
+  @else if $point == xl {
+    @media (max-width: 1400)  { @content; }
+  }
+  @else if $point == sm-lg {
+    @media (min-width: 575.98px) and (max-width: 1024px)  { @content; }
+  }
+}

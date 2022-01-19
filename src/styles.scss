@@ -1,42 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import '~bootstrap/scss/functions';
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import "__variable";
+@import "__mixin";
 html,
 body {
     height: 100%;
 }
 
-@mixin hideInMobile {
-    @media (max-width: 575.98px) {
-        display: none;
-    }
-}
-
-@mixin hideInDesktop {
-    @media (min-width: 1199.98px) {
-        display: none;
-    }
-}
 
 body {
     margin: 0;
     background-color: #f8f8f8!important;
     font-family: 'Poppins', sans-serif!important;
-}
-
-$primary-color: #e7877d;
-$secondary-color: #949494;
-@mixin button-prop {
-    padding: 8px 8px 8px 28px;
-    border: 0;
-    border-radius: 4px;
-    transition: box-shadow ease-in-out .2s;
-    display: flex;
-    align-items: center;
-    width: 100%;
 }
 
 .bg-Primary {
@@ -46,7 +22,7 @@ $secondary-color: #949494;
 .primary-button {
     background-color: $primary-color;
     color: #fff;
-    width: 100%;
+    @include shadow-primary;
     @include button-prop;
     &:hover {
         box-shadow: 0px 1px 8px 0px #e7877d;
@@ -59,6 +35,8 @@ $secondary-color: #949494;
 .white-button {
     background-color: #fff;
     color: #000000;
+    font-weight: 600;
+    box-shadow: 0 0 20px 0px #e3dcdb73;
     @include button-prop;
     &:hover {
         background-color: #e7877d;
@@ -99,14 +77,34 @@ $secondary-color: #949494;
     background-color: $primary-color;
     color: #fff;
     font-size: 1rem;
+    @include shadow-primary;
+    padding: 0px 36px!important;
+    width: 86px;
+    display: flex!important;
+    justify-content: center;
     mat-icon {
-        margin-right: 0px;
         font-size: 20px;
+        margin-right: 6px;
+        height: auto;
+        width: auto;
     }
 }
 
 ::ng-deep {
     .mat-drawer-container {
         background-color: #f8f8f8;
+    }
+}
+
+.shadow-primary{
+    position: relative;
+    &:after {
+        content: '';
+        box-shadow: 2px 4px 20px 1px #e7877da8;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        top: 3px;
     }
 }

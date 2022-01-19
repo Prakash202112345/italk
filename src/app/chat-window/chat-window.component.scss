@@ -1,22 +1,5 @@
-@import "../../styles.scss";
-$primary-color: #e7877d;
-$secondary-color: #949494;
-$border-color: #eeeeee;
-$border-light: #e1e1e1;
-$message-bg: #fcf0ee;
-@mixin user-avatar {
-    width: 28px;
-    height: 28px;
-    object-fit: contain;
-    border-radius: 50%;
-    margin-bottom: 16px;
-}
-
-@mixin hideInMobile {
-    @media only screen and (max-width: 1199.9px) {
-        display: none;
-    }
-}
+@import "__variable";
+@import "__mixin";
 
 .left-side-wrapper {
     text-align: center;
@@ -61,21 +44,35 @@ $message-bg: #fcf0ee;
     border-radius: 6px;
     height: 74vh;
     overflow: hidden;
-    @media only screen and (max-width: 1199.98px) {
+    @include breakpoint(lg){
         height: auto;
     }
     .users-area {
         width: 30%;
         border-right: 1px solid $border-color;
-        @include hideInMobile;
+        @include breakpoint(lg){
+            display:none;
+        }
+        .title-md {
+            font-weight: 600;
+            font-size: 18px;
+            color: #555656;
+        }
     }
     .user-head {
         justify-content: space-between;
     }
     .chat-area {
         width: 70%;
-        @media only screen and (max-width: 1199.98px) {
+        @include breakpoint(lg){
             width: 100%;
+        }
+        ::ng-deep {
+            .mat-tab-label{
+                min-width: 100px;
+                padding: 0 16px;
+                margin: 0 8px;
+            }
         }
         .head {
             padding: 0 20px !important;
@@ -84,7 +81,7 @@ $message-bg: #fcf0ee;
                 margin-top: 5px;
             }
             mat-icon {
-                margin-right: 12px;
+                margin-right: 8px;
             }
              ::ng-deep {
                 .mat-tab-label {
@@ -95,6 +92,17 @@ $message-bg: #fcf0ee;
                 }
                 .mat-tab-label-active mat-icon {
                     color: $primary-color;
+                    position: relative;
+                    &:after{
+                        content: "";
+                        box-shadow: 2px 4px 20px 1px #e7877da8;
+                        position: absolute;
+                        height: 7px;
+                        width: 16px;
+                        left: 3px;
+                        top: 7px;
+                        background-color: rgba(255, 255, 255, 0);
+                    }
                 }
                 .mat-tab-label.mat-tab-label-active {
                     opacity: 1;
@@ -111,7 +119,7 @@ $message-bg: #fcf0ee;
             display: flex;
             flex-direction: column;
             height: 89%;
-            @media only screen and (max-width: 1199.98px) {
+            @include breakpoint(lg){
                 height: auto;
             }
             .message-wrap {
@@ -126,7 +134,7 @@ $message-bg: #fcf0ee;
                 .message-list {
                     align-self: flex-start;
                     max-width: 40%;
-                    @media only screen and (max-width: 575.98px) {
+                    @include breakpoint(sm){
                         max-width: 100%;
                         margin-bottom: 16px;
                     }
@@ -139,7 +147,7 @@ $message-bg: #fcf0ee;
                     .thumb-lg {
                         width: 268px;
                         border-radius: 12px;
-                        @media only screen and (max-width: 575.98px) {
+                        @include breakpoint(sm){
                             width: 194px;
                         }
                     }
@@ -155,7 +163,7 @@ $message-bg: #fcf0ee;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        @media only screen and (max-width: 575.98px) {
+                        @include breakpoint(sm){
                             bottom: -11px;
                             right: 77px;
                             font-size: 20px;
@@ -204,9 +212,19 @@ $message-bg: #fcf0ee;
                 display: flex;
                 position: sticky;
                 bottom: 0;
-                @media only screen and (max-width: 575.98px) {
+                @include breakpoint(sm){
                     padding: 8px;
                 }
+                ::ng-deep {
+                    .mat-mini-fab .mat-button-wrapper {
+                        padding: 8px 0;
+                        display: flex;
+                        line-height: 24px;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                
                 .rotate-icon {
                     mat-icon {
                         transform: rotate(45deg);
@@ -227,7 +245,7 @@ $message-bg: #fcf0ee;
                     &:focus {
                         outline: 0;
                     }
-                    @media only screen and (max-width: 575.98px) {
+                    @include breakpoint(sm){
                         padding: 0 8px;
                     }
                 }
@@ -240,7 +258,7 @@ $message-bg: #fcf0ee;
                     border: 1px solid $border-light;
                     color: $secondary-color;
                     font-weight: 400;
-                    @media only screen and (max-width: 575.98px) {
+                    @include breakpoint(sm){
                         top: unset;
                         bottom: 49px;
                     }
@@ -260,7 +278,7 @@ $message-bg: #fcf0ee;
                         list-style: none;
                         margin: 0;
                         padding-left: 0;
-                        @media only screen and (max-width: 575.98px) {
+                        @include breakpoint(sm){
                             display: block;
                         }
                         button {
@@ -279,7 +297,7 @@ $message-bg: #fcf0ee;
         display: flex;
         padding: 20px;
         border-bottom: 1px solid $border-color;
-        @media only screen and (max-width: 575.98px) {
+        @include breakpoint(sm){
             padding: 0 20px;
         }
     }
@@ -316,6 +334,9 @@ $message-bg: #fcf0ee;
                     font-weight: 500;
                     line-height: 23px;
                     color: #535454;
+                    width: 255px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
                 .last-msg {
                     font-size: 0.75rem;
@@ -323,9 +344,13 @@ $message-bg: #fcf0ee;
                     color: $secondary-color;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    white-space: nowrap;
-                    @media only screen and (min-width: 575.98px) and (max-width: 1024px) {
-                        max-width: 122px;
+                    width: 255px;
+                    height: 38px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    @include breakpoint(sm-lg){
+                        max-width: 12px;
                     }
                 }
             }
@@ -373,7 +398,7 @@ $message-bg: #fcf0ee;
             height: 60px;
         }
         div {
-            margin: 0 3px;
+            margin: 0px;
             border-radius: 50%;
         }
     }
