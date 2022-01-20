@@ -1,13 +1,11 @@
 @import "__variable";
 @import "__mixin";
-
-
 header {
     mat-toolbar {
         justify-content: space-between;
         background-color: #fff;
         .hideInDesktop {
-                @include hideInDesktop;
+            @include hideInDesktop;
         }
         .logo {
             max-height: 49px;
@@ -15,7 +13,7 @@ header {
             @include breakpoint(sm) {
                 max-height: 36px;
                 padding: 2px;
-              }
+            }
         }
         .user {
             width: 28px;
@@ -33,13 +31,21 @@ header {
             }
         }
          ::ng-deep {
-            .mat-tab-label{
+            .mat-tab-label {
                 min-width: 100px;
                 padding: 0 16px;
                 margin: 0 16px;
             }
+            .mat-tab-group.mat-primary .mat-ink-bar,
+            .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+                box-shadow: 0px 2px 5px 0px #e7877d78;
+            }
             .mat-tab-header {
                 border: 0;
+                overflow: visible;
+            }
+            .mat-tab-label-container {
+                overflow: visible;
             }
             .mat-tab-label,
             .mat-tab-link {
@@ -49,7 +55,7 @@ header {
             .mat-tab-label-active mat-icon {
                 color: $primary-color;
                 position: relative;
-                &:after{
+                &:after {
                     content: "";
                     box-shadow: 2px 4px 20px 1px #e7877da8;
                     position: absolute;
@@ -89,8 +95,8 @@ header {
             width: 300px;
             position: absolute;
             right: 200px;
-            @include breakpoint(sm){
-                left:16px;
+            @include breakpoint(sm) {
+                left: 16px;
                 right: unset;
             }
             white-space: nowrap;
